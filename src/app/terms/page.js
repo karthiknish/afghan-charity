@@ -30,7 +30,7 @@ export default function TermsPage() {
         <p>
           You agree to use this website only for lawful purposes and in a way
           that does not infringe the rights of, restrict, or inhibit anyone
-          else's use and enjoyment of the website.
+          else&apos;s use and enjoyment of the website.
         </p>
         <h3 style={{ marginTop: 24 }}>2. Intellectual Property</h3>
         <p>
