@@ -29,6 +29,34 @@ export default function RootLayout({ children }) {
           name="description"
           content="Supporting Afghan communities through aid, education, and cultural preservation."
         />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Afghan Charity Shop - Hope & Help" />
+        <meta
+          property="og:description"
+          content="Supporting Afghan communities through aid, education, and cultural preservation."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://afghancharityshop.org/" />
+        <meta
+          property="og:image"
+          content="https://afghancharityshop.org/og-image.jpg"
+        />
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Afghan Charity Shop - Hope & Help"
+        />
+        <meta
+          name="twitter:description"
+          content="Supporting Afghan communities through aid, education, and cultural preservation."
+        />
+        <meta
+          name="twitter:image"
+          content="https://afghancharityshop.org/og-image.jpg"
+        />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
         <Header />

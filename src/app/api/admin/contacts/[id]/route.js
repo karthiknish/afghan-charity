@@ -14,9 +14,9 @@ const client = createClient({
   accessToken: CONTENTFUL_MANAGEMENT_TOKEN,
 });
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   // TODO: Add authentication check for production use
-  const { id } = params;
+  const { id } = await context.params;
 
   if (!CONTENTFUL_MANAGEMENT_TOKEN || !CONTENTFUL_SPACE_ID) {
     return NextResponse.json(
