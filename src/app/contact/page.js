@@ -109,7 +109,7 @@ export default function ContactPage() {
           color: "var(--afghan-black)",
         }}
       >
-        We'd love to hear from you! Whether you have a question, want to
+        We&apos;d love to hear from you! Whether you have a question, want to
         volunteer, or wish to learn more about our work, please get in touch.
       </p>
 
@@ -190,9 +190,9 @@ export default function ContactPage() {
               }}
             />
             <p>
-              Volunteers are the heart of our organization. If you're passionate
-              about making a difference and have some time to spare, we'd be
-              delighted to have you on our team.
+              Volunteers are the heart of our organization. If you&apos;re
+              passionate about making a difference and have some time to spare,
+              we&apos;d be delighted to have you on our team.
             </p>
             <p>
               Please email us at{" "}

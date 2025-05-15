@@ -437,11 +437,14 @@ export default function HomePage() {
               >
                 EDUCATION
               </h4>
-              <h3 style={{ marginTop: 0 }}>Nasrin's Journey to University</h3>
+              <h3 style={{ marginTop: 0 }}>
+                Nasrin&apos;s Journey to University
+              </h3>
               <p>
-                From refugee to scholarship recipient, Nasrin's determination
-                and our educational support program opened doors to higher
-                education and a brighter future...
+                From refugee to scholarship recipient, Nasrin&apos;s
+                determination and our educational support program opened doors
+                to higher education and a brighter future... education and a
+                brighter future...
               </p>
               <Link
                 href="/about#stories"

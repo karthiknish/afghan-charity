@@ -166,7 +166,7 @@ export default function SupportedCharitiesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            Together, we're making a lasting difference in South Asian
+            Together, we&apos;re making a lasting difference in South Asian
             communities through sustainable initiatives and meaningful
             partnerships.
           </motion.p>
