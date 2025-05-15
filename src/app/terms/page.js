@@ -26,31 +26,31 @@ export default function TermsPage() {
           agree to comply with and be bound by the following terms and
           conditions. Please read them carefully.
         </p>
-        <h2 style={{ marginTop: 24 }}>1. Use of Website</h2>
+        <h3 style={{ marginTop: 24 }}>1. Use of Website</h3>
         <p>
           You agree to use this website only for lawful purposes and in a way
           that does not infringe the rights of, restrict, or inhibit anyone
           else's use and enjoyment of the website.
         </p>
-        <h2 style={{ marginTop: 24 }}>2. Intellectual Property</h2>
+        <h3 style={{ marginTop: 24 }}>2. Intellectual Property</h3>
         <p>
           All content, trademarks, and data on this website, including but not
           limited to text, images, logos, and software, are the property of
           Afghan Charity Shop or its partners. Unauthorized use is prohibited.
         </p>
-        <h2 style={{ marginTop: 24 }}>3. Donations & Purchases</h2>
+        <h3 style={{ marginTop: 24 }}>3. Donations & Purchases</h3>
         <p>
           All donations and purchases are final. Please contact us if you have
           any questions about your transaction.
         </p>
-        <h2 style={{ marginTop: 24 }}>4. Limitation of Liability</h2>
+        <h3 style={{ marginTop: 24 }}>4. Limitation of Liability</h3>
         <p>
           Afghan Charity Shop is not liable for any damages arising from the use
           of this website or from any information, content, materials, or
           products included on or otherwise made available to you through this
           site.
         </p>
-        <h2 style={{ marginTop: 24 }}>5. Changes to Terms</h2>
+        <h3 style={{ marginTop: 24 }}>5. Changes to Terms</h3>
         <p>
           We reserve the right to update these terms at any time. Continued use
           of the website means you accept the changes.
