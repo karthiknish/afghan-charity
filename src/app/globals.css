@@ -1,26 +1,477 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Afghan-Inspired Color Palette */
+  --afghan-blue: #1460aa; /* Rich blue inspired by Afghan lapis lazuli */
+  --afghan-green: #007749; /* Deep green from Afghan flag */
+  --afghan-red: #ce1126; /* Red from Afghan flag */
+  --afghan-gold: #d4af37; /* Gold/Yellow accent color */
+  --afghan-black: #1a1a1a; /* Not pure black - softer for text */
+  --afghan-white: #faf7f2; /* Off-white for backgrounds */
+  --afghan-light-grey: #e8e8e0; /* Light grey with warm undertone */
+  --afghan-medium-grey: #767670; /* Medium grey with warm undertone */
+  --afghan-dark-grey: #333333; /* Dark grey for footer and text */
+  
+  /* Typography Variables */
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-primary);
+  
+  --body-font-size: 16px;
+  --body-line-height: 1.6;
+  --header-height: 80px;
+
+  --padding-small: 0.5rem;
+  --padding-base: 1rem;
+  --padding-large: 2rem;
+  --margin-base: 1rem;
+  --margin-large: 2rem;
+
+  --border-radius: 6px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover-strong: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+
+  /* Button Specific Variables */
+  --button-font-size-small: 0.85rem;
+  --button-font-size-default: 0.95rem;
+  --button-font-size-large: 1.1rem;
+
+  --button-padding-small: 0.5rem 1rem;
+  --button-padding-default: 0.75rem 1.5rem;
+  --button-padding-large: 1rem 2.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  color: var(--afghan-black);
+  background-color: var(--afghan-white);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--afghan-white);
+  border-bottom: 1px solid var(--afghan-light-grey);
+  padding: 0 var(--padding-large);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem; 
+  font-weight: 700;
+  color: var(--afghan-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: var(--padding-large);
+}
+
+nav ul li a:not(.button-primary-red) { /* Exclude donate button from this specific nav link styling */
+  color: var(--afghan-black);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--button-font-size-default);
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-speed) ease, border-bottom-color var(--transition-speed) ease;
+}
+
+nav ul li a:not(.button-primary-red):hover,
+nav ul li a:not(.button-primary-red).active { 
+  color: var(--afghan-blue);
+  border-bottom-color: var(--afghan-blue);
+}
+
+/* --- Button Base Styles --- */
+.button {
+  display: inline-block;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  font-family: var(--font-heading);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, transform 0.2s ease, box-shadow var(--transition-speed) ease;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  font-size: var(--button-font-size-default);
+  padding: var(--button-padding-default);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover-strong);
+}
+
+/* --- Button Color Variants --- */
+/* Primary Red */
+.button-primary-red {
+  background-color: var(--afghan-red);
+  color: var(--afghan-white) !important; 
+  font-weight: 700;
+}
+.button-primary-red:hover {
+  background-color: #b30e21; /* Darker red */
+}
+
+/* Primary Blue */
+.button-primary-blue {
+  background-color: var(--afghan-blue);
+  color: var(--afghan-white) !important;
+  font-weight: 700;
+}
+.button-primary-blue:hover {
+  background-color: #104d8a; /* Darker blue */
+}
+
+/* Primary Green */
+.button-primary-green {
+  background-color: var(--afghan-green);
+  color: var(--afghan-white) !important;
+  font-weight: 700;
+}
+.button-primary-green:hover {
+  background-color: #005c3a; /* Darker green */
+}
+
+/* --- Button Outline Variants --- */
+.button-outline-white {
+  background-color: transparent;
+  color: var(--afghan-white) !important;
+  border-color: var(--afghan-white);
+  font-weight: 600;
+}
+.button-outline-white:hover {
+  background-color: var(--afghan-white);
+  color: var(--afghan-blue) !important; /* Or other contrasting color */
+}
+
+.button-outline-blue {
+  background-color: transparent;
+  color: var(--afghan-blue) !important;
+  border-color: var(--afghan-blue);
+  font-weight: 600;
+}
+.button-outline-blue:hover {
+  background-color: var(--afghan-blue);
+  color: var(--afghan-white) !important;
+}
+
+/* --- Button Size Variants --- */
+.button-large {
+  font-size: var(--button-font-size-large);
+  padding: var(--button-padding-large);
+}
+
+.button-small {
+  font-size: var(--button-font-size-small);
+  padding: var(--button-padding-small);
+}
+
+/* Legacy classes to be deprecated - map to new system */
+/* Ensure these are removed from JS and only new structure used if possible */
+.button-secondary-blue { /* Now maps to .button-primary-blue */
+  composes: button button-primary-blue; /* this is conceptual, 'composes' is not standard CSS */
+  /* For actual CSS, we'll re-apply relevant properties or advise replacement in JS */
+  background-color: var(--afghan-blue);
+  color: var(--afghan-white) !important;
+  font-weight: 600; /* Note: primary buttons are now 700 */
+}
+.button-secondary-blue:hover {
+  background-color: #104d8a;
+}
+
+
+/* Main Content Area */
+main {
+  padding: var(--padding-large);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--header-height) - 250px); /* Adjusted for potentially taller footer */
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--afghan-dark-grey);
+  color: var(--afghan-light-grey);
+  padding: var(--padding-large);
+  margin-top: var(--margin-large);
+}
+
+footer p {
+  margin: 0 0 var(--padding-base) 0;
+  font-size: 0.9rem;
+}
+
+footer a:not(.button) { /* Ensure footer links that are not buttons get this style */
+  color: var(--afghan-white);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+footer a:not(.button):hover {
+  color: var(--afghan-gold);
+  border-bottom-color: var(--afghan-gold);
+  text-decoration: none;
+}
+
+footer h4 {
+  color: var(--afghan-white);
+  margin-top: 0;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--afghan-blue);
+  display: inline-block;
+  margin-bottom: var(--padding-base);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--afghan-black);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: var(--margin-large) 0 var(--margin-base) 0;
+}
+
+h1 { 
+  font-size: 2.5rem;
+  color: var(--afghan-blue);
+  border-bottom: 2px solid var(--afghan-gold);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+h2 { 
+  font-size: 2rem;
+  color: var(--afghan-blue);
+  border-bottom: 2px solid var(--afghan-gold);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: var(--margin-large);
+}
+
+h3 { 
+  font-size: 1.5rem;
+  color: var(--afghan-blue);
+}
+
+/* Links */
+a:not(.button) { /* Ensure links that are not buttons get this style */
+  color: var(--afghan-blue);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+a:not(.button):hover {
+  color: var(--afghan-red);
+  text-decoration: underline;
+}
+
+/* Content Sections & Cards */
+.content-section {
+  padding: var(--padding-large) 0;
+  margin-bottom: var(--margin-large);
+  animation: fadeIn 0.9s ease-out forwards;
+  background-color: var(--afghan-white);
+}
+
+.card {
+  background: var(--afghan-white);
+  border: 1px solid var(--afghan-light-grey);
+  border-radius: var(--border-radius);
+  padding: var(--padding-large);
+  margin-bottom: var(--margin-large);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--afghan-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: none;
+  margin-bottom: var(--margin-base);
+}
+
+/* FAQ specific styling */
+.faq-item {
+    margin-bottom: var(--margin-base);
+    border: 1px solid var(--afghan-light-grey);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.faq-item summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--padding-base);
+  background-color: var(--afghan-light-grey);
+  /* border-radius: var(--border-radius) var(--border-radius) 0 0; */ /* Removed to allow full border on details[open] */
+  position: relative;
+  outline: none;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: var(--padding-base);
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+.faq-item details[open] summary {
+    background-color: var(--afghan-blue);
+    color: var(--afghan-white);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.faq-item details[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item details p {
+  padding: var(--padding-base);
+  margin: 0;
+  background-color: var(--afghan-white);
+  border-top: 1px solid var(--afghan-light-grey);
+  /* border-radius: 0 0 var(--border-radius) var(--border-radius); */ /* Removed to avoid conflict if summary is not open */
+}
+
+/* Hero Section Styles */
+.hero-section {
+    padding: var(--padding-large) var(--padding-base); /* Adjusted padding for consistency */
+    text-align: center;
+}
+.hero-section h1 {
+    font-size: 3.2rem; /* Slightly increased */
+    color: var(--afghan-white);
+    margin-bottom: var(--margin-base);
+    border-bottom: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-section p {
+    font-size: 1.25rem; /* Slightly increased */
+    color: var(--afghan-white);
+    max-width: 750px; /* Slightly increased */
+    margin: 0 auto var(--margin-large) auto;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    line-height: 1.7; /* Increased line height for readability */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--afghan-white);
+    border-top: 1px solid var(--afghan-light-grey);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    padding: var(--padding-base);
+    display: none;
+    z-index: 999; /* Ensure dropdown is above other content */
+  }
+  nav ul.mobile-active {
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 0;
+    margin-bottom: var(--padding-base);
+    width: 100%;
+  }
+  nav ul li a:not(.button) { /* Adjusted for mobile nav links */
+    display: block;
+    padding: var(--padding-base) var(--padding-base); /* Larger touch targets */
+    border-bottom: none; /* Remove border for stacked links */
+  }
+  nav ul li a.button-primary-red { /* Ensure donate button in mobile nav is full width */
+      display: block;
+      width: calc(100% - var(--padding-base) * 2); /* Adjust width considering padding */
+      margin: 0 auto; /* Center button */
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.7rem; }
+  .hero-section h1 {font-size: 2.5rem;} /* Adjusted for mobile */
+  .hero-section p {font-size: 1.1rem;} /* Adjusted for mobile */
+  
+  .mobile-menu-button {
+    display: block;
+    font-size: 1.8rem; /* Larger icon */
+    color: var(--afghan-blue);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem; /* Add padding for easier tapping */
+  }
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/* Page Container */
+.page-container {
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--afghan-white);
 }
