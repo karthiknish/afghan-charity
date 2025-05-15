@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "Admin1!"; // Reminder: This is not secure for production.
@@ -52,10 +53,15 @@ export default function AdminPage() {
   const [contacts, setContacts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
+    console.log("[AdminPage] useEffect: Checking persisted authentication...");
     const persistedAuth = localStorage.getItem("isAdminAuthenticated");
     if (persistedAuth === "true") {
+      console.log(
+        "[AdminPage] Found persisted authentication, setting isAuthenticated to true and fetching contacts."
+      );
       setIsAuthenticated(true);
       fetchContacts();
     }
@@ -64,38 +70,55 @@ export default function AdminPage() {
   const fetchContacts = async () => {
     setIsLoading(true);
     setError(null);
+    console.log(
+      "[AdminPage] fetchContacts: Fetching contacts from /api/admin/contacts..."
+    );
     try {
-      const response = await fetch("/api/admin/contacts");
-      const data = await response.json();
+      const response = await fetch("/api/admin/contacts", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Add authorization header if you have a token
+          // "Authorization": `Bearer ${token}`
+        },
+        cache: "no-store", // Disable caching
+      });
 
       if (!response.ok) {
-        let errorMessage =
-          data.error || `API request failed with status ${response.status}`;
-        if (data.details) {
-          errorMessage += ` (Details: ${data.details})`;
-        }
-        throw new Error(errorMessage);
+        const data = await response.json();
+        console.error("[AdminPage] fetchContacts: Response not ok", data);
+        throw new Error(data.error || `HTTP error! status: ${response.status}`);
       }
-      setContacts(data || []);
+
+      const data = await response.json();
+      console.log("[AdminPage] fetchContacts: Received data:", data);
+      setContacts(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Error fetching contacts via API route:", err);
+      console.error("[AdminPage] Error fetching contacts:", err);
       setError(
-        err.message ||
-          "Failed to load contact entries. Check browser console and server logs for more details."
+        err.message || "Failed to load contacts. Please try again later."
       );
       setContacts([]);
+    } finally {
+      setIsLoading(false);
+      console.log("[AdminPage] fetchContacts: Done loading.");
     }
-    setIsLoading(false);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
     setError(null);
+    console.log(
+      "[AdminPage] handleLogin: Attempting login with username:",
+      username
+    );
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+      console.log("[AdminPage] handleLogin: Login successful.");
       setIsAuthenticated(true);
       localStorage.setItem("isAdminAuthenticated", "true");
       fetchContacts();
     } else {
+      console.warn("[AdminPage] handleLogin: Invalid username or password.");
       setError("Invalid username or password.");
       setIsAuthenticated(false);
       localStorage.removeItem("isAdminAuthenticated");
@@ -103,6 +126,7 @@ export default function AdminPage() {
   };
 
   const handleLogout = () => {
+    console.log("[AdminPage] handleLogout: Logging out.");
     setIsAuthenticated(false);
     setUsername("");
     setPassword("");
@@ -112,6 +136,7 @@ export default function AdminPage() {
   };
 
   if (!isAuthenticated) {
+    console.log("[AdminPage] Not authenticated, rendering login form.");
     return (
       <div
         style={{
@@ -148,7 +173,13 @@ export default function AdminPage() {
               type="text"
               id="username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                console.log(
+                  "[AdminPage] Username input changed:",
+                  e.target.value
+                );
+              }}
               required
               style={inputStyle}
             />
@@ -168,7 +199,10 @@ export default function AdminPage() {
               type="password"
               id="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                console.log("[AdminPage] Password input changed.");
+              }}
               required
               style={inputStyle}
             />
@@ -192,6 +226,7 @@ export default function AdminPage() {
     );
   }
 
+  console.log("[AdminPage] Authenticated, rendering contact entries table.");
   return (
     <div style={{ padding: "2rem", maxWidth: "1000px", margin: "2rem auto" }}>
       <h1
@@ -207,6 +242,7 @@ export default function AdminPage() {
 
       {isLoading && (
         <p style={{ fontSize: "1.1rem", textAlign: "center" }}>
+          {console.log("[AdminPage] Loading entries...")}
           Loading entries...
         </p>
       )}
@@ -218,6 +254,7 @@ export default function AdminPage() {
             textAlign: "center",
           }}
         >
+          {console.log("[AdminPage] Error displayed:", error)}
           {error}
         </p>
       )}
@@ -230,12 +267,18 @@ export default function AdminPage() {
             color: "var(--afghan-medium-grey, #555)",
           }}
         >
+          {console.log("[AdminPage] No contact entries found.")}
           No contact entries found.
         </p>
       )}
 
       {!isLoading && !error && contacts.length > 0 && (
         <div style={{ overflowX: "auto" }}>
+          {console.log(
+            "[AdminPage] Rendering contacts table with",
+            contacts.length,
+            "entries."
+          )}
           <table style={tableStyle}>
             <thead>
               <tr>
@@ -248,7 +291,23 @@ export default function AdminPage() {
             </thead>
             <tbody>
               {contacts.map((contact) => (
-                <tr key={contact.sys.id}>
+                <tr
+                  key={contact.sys.id}
+                  onClick={() =>
+                    router.push(`/admin/contacts/${contact.sys.id}`)
+                  }
+                  style={{
+                    cursor: "pointer",
+                    background: "#fff",
+                    transition: "background 0.2s",
+                  }}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.background = "#f2f6fa")
+                  }
+                  onMouseOut={(e) =>
+                    (e.currentTarget.style.background = "#fff")
+                  }
+                >
                   <td style={thTdStyle}>
                     {new Date(contact.sys.createdAt).toLocaleDateString()}
                   </td>
@@ -271,7 +330,10 @@ export default function AdminPage() {
         </div>
       )}
       <button
-        onClick={handleLogout}
+        onClick={() => {
+          console.log("[AdminPage] Logout button clicked.");
+          handleLogout();
+        }}
         style={{
           ...buttonStyle,
           backgroundColor: "var(--afghan-red, #ce1126)",
