@@ -96,8 +96,19 @@ export default function ContactPage() {
       variants={pageVariants}
       initial="initial"
       animate="animate"
+      style={{
+        paddingLeft: "var(--padding-large)",
+        paddingRight: "var(--padding-large)",
+      }}
     >
-      <h1 className="text-center text-[var(--afghan-blue)]">Contact Us</h1>
+      <h1
+        style={{
+          width: "100%",
+        }}
+        className="text-center text-[var(--afghan-blue)]"
+      >
+        Contact Us
+      </h1>
       <p
         style={{
           textAlign: "center",

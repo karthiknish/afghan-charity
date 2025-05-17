@@ -4,6 +4,7 @@ import SocialIcons from "./SocialIcons";
 export default function Footer() {
   return (
     <footer>
+      <div className="afghan-divider" />
       <div
         style={{
           maxWidth: "1200px",

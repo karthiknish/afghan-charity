@@ -189,7 +189,7 @@ export default function SupportedCharitiesPage() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="container mx-auto px-4 max-w-7xl">
+          <div>
             <motion.div className="text-center mb-16" variants={fadeIn}>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto">
                 The proceeds from Afghan Charity Shop are dedicated to

@@ -2,6 +2,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  HeartHandshake,
+  BookOpen,
+  Users,
+  LifeBuoy,
+  HandCoins,
+  Gift,
+  PartyPopper,
+  HelpingHand,
+  HandHeart,
+} from "lucide-react";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -43,6 +54,48 @@ const cardVariants = {
     },
   },
 };
+
+const impactIcons = [
+  <LifeBuoy
+    key="aid"
+    size={28}
+    className="text-afghan-blue mr-2"
+    aria-label="Emergency Relief Icon"
+  />,
+  <BookOpen
+    key="edu"
+    size={28}
+    className="text-afghan-blue mr-2"
+    aria-label="Education Icon"
+  />,
+  <Users
+    key="community"
+    size={28}
+    className="text-afghan-blue mr-2"
+    aria-label="Community Icon"
+  />,
+];
+
+const involvementIcons = [
+  <HelpingHand
+    key="volunteer"
+    size={22}
+    className="text-afghan-green mr-2"
+    aria-label="Volunteer Icon"
+  />,
+  <Gift
+    key="goods"
+    size={22}
+    className="text-afghan-gold mr-2"
+    aria-label="Goods Donation Icon"
+  />,
+  <PartyPopper
+    key="fundraise"
+    size={22}
+    className="text-afghan-red mr-2"
+    aria-label="Fundraise Icon"
+  />,
+];
 
 export default function HomePage() {
   const impactAreas = [
@@ -112,62 +165,33 @@ export default function HomePage() {
     <>
       {/* --- Enhanced Hero Section with Afghan Imagery --- */}
       <motion.section
-        className="hero-section"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "calc(85vh - var(--header-height))",
-          color: "var(--afghan-white)",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
+        className="hero-section flex flex-col md:flex-row items-center justify-center min-h-[70vh] md:min-h-[85vh] bg-[rgba(20,96,170,0.75)] px-4 md:px-12 lg:px-24 gap-8 md:gap-16"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Background Image */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1587574293340-e0011c4e8ecf?auto=format&fit=crop&q=80&w=1800&h=1000')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            zIndex: 1,
-          }}
-        ></div>
-        {/* Gradient Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background:
-              "linear-gradient(rgba(0, 0, 0, 0.5), rgba(20, 96, 170, 0.7))",
-            zIndex: 2,
-          }}
-        ></div>
-
-        {/* Hero Content */}
-        <motion.div
-          style={{ position: "relative", zIndex: 3, maxWidth: "800px" }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
+        {/* Charity Video Left */}
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <video
+            src="/charity-new.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/file.svg"
+            className="rounded-2xl shadow-xl w-full max-w-[360px] aspect-[9/16] object-cover bg-black"
+            aria-label="Charity video showing Afghan Charity Shop in action"
+          />
+        </div>
+        {/* Hero Content Right */}
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-center justify-center text-left space-y-6 max-w-xl">
+          <HeartHandshake
+            size={48}
+            className="text-afghan-gold mb-2"
+            aria-label="Charity and support icon"
+          />
           <motion.h1
-            style={{
-              fontWeight: "800",
-              textShadow: "2px 2px 6px rgba(0,0,0,0.7)",
-            }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-afghan-blue mb-2 flex items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
@@ -175,9 +199,7 @@ export default function HomePage() {
             Supporting Afghan Communities
           </motion.h1>
           <motion.p
-            style={{
-              textShadow: "1px 1px 4px rgba(0,0,0,0.5)",
-            }}
+            className="text-lg md:text-xl text-afghan-dark-grey"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -187,31 +209,25 @@ export default function HomePage() {
             both in the UK and abroad.
           </motion.p>
           <motion.div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              justifyContent: "center",
-              marginTop: "var(--margin-large)",
-            }}
+            className="flex flex-col sm:flex-row gap-4 mt-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             <Link
               href="/donate"
-              className="button button-primary-red button-large"
-              style={{ textTransform: "uppercase", letterSpacing: "1px" }}
+              className="button button-primary-red button-large uppercase tracking-wider flex items-center"
             >
               Donate Now
             </Link>
             <Link
               href="/about"
-              className="button button-outline-white button-large"
+              className="button button-outline-white button-large flex items-center"
             >
               Learn More
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </motion.section>
 
       {/* --- Mission Statement with Cultural Element --- */}
@@ -227,9 +243,7 @@ export default function HomePage() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div
-          style={{ maxWidth: "1100px", margin: "0 auto", position: "relative" }}
-        >
+        <div style={{ position: "relative" }}>
           {/* Decorative element inspired by Afghan patterns */}
           <div
             style={{
@@ -261,12 +275,21 @@ export default function HomePage() {
               color: "var(--afghan-blue)",
               position: "relative",
               zIndex: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
+            <HeartHandshake
+              size={28}
+              className="text-afghan-gold mr-1"
+              aria-label="Mission Icon"
+            />
             Our Mission
           </motion.h2>
           <motion.p
@@ -284,6 +307,11 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
+            <Users
+              size={18}
+              className="inline-block text-afghan-blue mr-1 align-text-bottom"
+              aria-label="Community Icon"
+            />
             The Afghan Charity Shop is dedicated to improving lives through
             sustainable aid, education, and community building. We believe in
             empowering individuals and families to create lasting change in
@@ -305,10 +333,16 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <Link href="/about" className="button button-primary-blue">
+            <Link
+              href="/about"
+              className="button button-primary-blue flex items-center"
+            >
               Our Story
             </Link>
-            <Link href="/products" className="button button-primary-green">
+            <Link
+              href="/products"
+              className="button button-primary-green flex items-center"
+            >
               Our Impact
             </Link>
           </motion.div>
@@ -329,12 +363,24 @@ export default function HomePage() {
         transition={{ duration: 0.6 }}
       >
         <motion.h2
-          style={{ textAlign: "center", color: "var(--afghan-blue)" }}
+          style={{
+            textAlign: "center",
+            color: "var(--afghan-blue)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <Users
+            size={28}
+            className="text-afghan-blue mr-1"
+            aria-label="Impact Areas Icon"
+          />
           Our Areas of Impact
         </motion.h2>
         <motion.div
@@ -378,11 +424,21 @@ export default function HomePage() {
                   flexDirection: "column",
                 }}
               >
-                <h3 style={{ marginTop: 0 }}>{area.title}</h3>
+                <h3
+                  style={{
+                    marginTop: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  {impactIcons[index]}
+                  {area.title}
+                </h3>
                 <p style={{ flexGrow: 1 }}>{area.description}</p>
                 <Link
                   href={area.link}
-                  className="button button-primary-red button-small"
+                  className="button button-primary-red button-small flex items-center"
                   style={{ marginTop: "auto" }}
                 >
                   Learn More
@@ -399,9 +455,25 @@ export default function HomePage() {
         style={{
           background:
             "linear-gradient(135deg, var(--afghan-white) 0%, var(--afghan-white) 60%, rgba(20, 96, 170, 0.05) 100%)",
+          paddingLeft: "var(--padding-large)",
+          paddingRight: "var(--padding-large)",
         }}
       >
-        <h2 style={{ textAlign: "center", color: "var(--afghan-blue)" }}>
+        <h2
+          style={{
+            textAlign: "center",
+            color: "var(--afghan-blue)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <BookOpen
+            size={24}
+            className="text-afghan-blue mr-1"
+            aria-label="Stories Icon"
+          />
           Stories of Hope
         </h2>
         <div
@@ -433,8 +505,16 @@ export default function HomePage() {
                   fontWeight: "600",
                   marginBottom: "0.3rem",
                   textTransform: "uppercase",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.3rem",
                 }}
               >
+                <BookOpen
+                  size={16}
+                  className="text-afghan-gold mr-1"
+                  aria-label="Education Icon"
+                />
                 EDUCATION
               </h4>
               <h3 style={{ marginTop: 0 }}>
@@ -448,7 +528,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/about#stories"
-                className="button button-primary-blue button-small"
+                className="button button-primary-blue button-small flex items-center"
                 style={{
                   display: "inline-block",
                   marginTop: "var(--margin-base)",
@@ -480,8 +560,16 @@ export default function HomePage() {
                   fontWeight: "600",
                   marginBottom: "0.3rem",
                   textTransform: "uppercase",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.3rem",
                 }}
               >
+                <Users
+                  size={16}
+                  className="text-afghan-gold mr-1"
+                  aria-label="Community Icon"
+                />
                 COMMUNITY
               </h4>
               <h3 style={{ marginTop: 0 }}>Rebuilding Together</h3>
@@ -492,7 +580,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/about#news"
-                className="button button-primary-blue button-small"
+                className="button button-primary-blue button-small flex items-center"
                 style={{
                   display: "inline-block",
                   marginTop: "var(--margin-base)",
@@ -522,6 +610,10 @@ export default function HomePage() {
                   color: "var(--afghan-white)",
                   borderBottom: "none",
                   marginTop: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
                 }}
               >
                 Make a Difference Today
@@ -533,7 +625,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/donate"
-                className="button button-outline-white button-large"
+                className="button button-outline-white button-large flex items-center"
                 style={{ marginTop: "var(--margin-base)" }}
               >
                 Donate Now
@@ -552,6 +644,9 @@ export default function HomePage() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
+          paddingLeft: "var(--padding-large)",
+          paddingRight: "var(--padding-large)",
+          marginTop: 0,
         }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -574,16 +669,26 @@ export default function HomePage() {
 
         <div style={{ position: "relative", zIndex: 1 }}>
           <motion.h2
+            className="text-center"
             style={{
               color: "var(--afghan-white)",
               borderBottomColor: "var(--afghan-gold)",
               display: "inline-block",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
+            <HandHeart
+              size={24}
+              className="text-afghan-gold mr-1"
+              aria-label="Get Involved Icon"
+            />
             Get Involved Today
           </motion.h2>
           <motion.p
@@ -592,12 +697,21 @@ export default function HomePage() {
               margin: "0 auto var(--margin-large) auto",
               fontSize: "1.15rem",
               color: "var(--afghan-light-grey)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
+            <Users
+              size={18}
+              className="text-afghan-gold mr-1"
+              aria-label="Community Icon"
+            />
             There are many ways to support our mission. Whether through
             donations, volunteering, or spreading awareness, your contribution
             makes a real difference in the lives of Afghan families.
@@ -616,13 +730,13 @@ export default function HomePage() {
           >
             <Link
               href="/donate"
-              className="button button-primary-red button-large"
+              className="button button-primary-red button-large flex items-center"
             >
               Donate Securely
             </Link>
             <Link
               href="/contact#volunteer"
-              className="button button-outline-white button-large"
+              className="button button-outline-white button-large flex items-center"
             >
               Volunteer With Us
             </Link>
@@ -633,34 +747,58 @@ export default function HomePage() {
       {/* --- Call to Action: How to Help --- */}
       <motion.section
         className="content-section"
-        style={{ backgroundColor: "var(--afghan-gold-muted)" }}
+        style={{
+          backgroundColor: "var(--afghan-gold-muted)",
+          paddingLeft: "var(--padding-large)",
+          paddingRight: "var(--padding-large)",
+        }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <motion.h2
-          style={{ textAlign: "center", color: "var(--afghan-blue)" }}
+          className="text-center"
+          style={{
+            color: "var(--afghan-blue)",
+            display: "inline-block",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <HandHeart
+            size={22}
+            className="text-afghan-gold mr-1"
+            aria-label="Get Involved Icon"
+          />
           Get Involved, Make a Difference
         </motion.h2>
         <motion.p
           style={{
-            textAlign: "center",
-            maxWidth: "700px",
             margin: "0 auto var(--margin-large) auto",
             color: "var(--afghan-black)",
             fontSize: "1.1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
+          <Users
+            size={16}
+            className="text-afghan-blue mr-1"
+            aria-label="Community Icon"
+          />
           Every contribution, big or small, helps us continue our vital work.
           Discover the many ways you can support Afghan Charity Shop.
         </motion.p>
@@ -706,13 +844,23 @@ export default function HomePage() {
                   alignItems: "flex-start",
                 }}
               >
-                <h3 style={{ marginTop: 0 }}>{way.title}</h3>
+                <h3
+                  style={{
+                    marginTop: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  {involvementIcons[index]}
+                  {way.title}
+                </h3>
                 <p style={{ flexGrow: 1, marginBottom: "var(--padding-base)" }}>
                   {way.description}
                 </p>
                 <Link
                   href={way.link}
-                  className="button button-primary-green button-small"
+                  className="button button-primary-green button-small flex items-center"
                   style={{ marginTop: "auto" }}
                 >
                   {way.buttonText}
@@ -733,7 +881,7 @@ export default function HomePage() {
         >
           <Link
             href="/donate"
-            className="button button-primary-red button-large"
+            className="button button-primary-red button-large flex items-center"
           >
             Donate Today
           </Link>
@@ -742,3 +890,4 @@ export default function HomePage() {
     </>
   );
 }
+                

@@ -167,7 +167,7 @@ export default function AboutPage() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <motion.h1
-              className="text-5xl md:text-6xl font-bold mb-6"
+              className="text-5xl md:text-6xl font-bold mb-6 text-afghan-white"
               style={{
                 textShadow: "2px 2px 6px rgba(0,0,0,0.7)",
               }}
@@ -199,13 +199,15 @@ export default function AboutPage() {
           className="content-section py-16 md:py-24"
           style={{
             background: "var(--afghan-white)",
+            paddingLeft: "var(--padding-large)",
+            paddingRight: "var(--padding-large)",
           }}
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="container mx-auto px-4 max-w-7xl">
+          <div>
             {/* About Content */}
             <div className="flex flex-wrap gap-12 lg:gap-16 items-center mb-24">
               <motion.div className="flex-1 min-w-[300px]" variants={fadeIn}>
@@ -263,7 +265,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="pt-16 pb-8"
             >
-              <h2 className="text-4xl font-bold text-afghan-blue text-center mb-16">
+              <h2
+                style={{
+                  width: "100%",
+                }}
+                className="text-4xl font-bold text-afghan-blue  text-center mb-16"
+              >
                 Our Values
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">

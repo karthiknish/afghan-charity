@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FaTshirt, FaGem, FaBookOpen } from "react-icons/fa";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -57,7 +58,7 @@ export default function ProductsPage() {
       <div className="min-h-screen bg-afghan-white">
         {/* Hero Section */}
         <motion.section
-          className="hero-section"
+          className="hero-section`"
           style={{
             display: "flex",
             alignItems: "center",
@@ -67,7 +68,6 @@ export default function ProductsPage() {
             textAlign: "center",
             position: "relative",
             overflow: "hidden",
-            marginBottom: "4rem",
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,7 +107,6 @@ export default function ProductsPage() {
             style={{
               position: "relative",
               zIndex: 3,
-              maxWidth: "800px",
               padding: "0 var(--padding-medium)",
             }}
             initial={{ opacity: 0, y: 30 }}
@@ -119,6 +118,7 @@ export default function ProductsPage() {
               style={{
                 textShadow: "2px 2px 6px rgba(0,0,0,0.7)",
                 border: "none",
+                color: "var(--afghan-white)",
               }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ export default function ProductsPage() {
 
         {/* Main Content Section */}
         <motion.section
-          className="content-section py-16 md:py-24"
+          className="content-section "
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -181,11 +181,14 @@ export default function ProductsPage() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="p-8 flex flex-col items-center">
+                    <div className="mb-4">
+                      <FaTshirt className="w-12 h-12 text-afghan-blue" />
+                    </div>
                     <h3 className="text-2xl font-semibold mb-4 text-afghan-blue">
                       Traditional & Modern Attire
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-center">
                       Beautiful sarees, kurtas, shawls, and more. Discover
                       unique pieces rich in culture.
                     </p>
@@ -203,11 +206,14 @@ export default function ProductsPage() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="p-8 flex flex-col items-center">
+                    <div className="mb-4">
+                      <FaGem className="w-12 h-12 text-amber-500" />
+                    </div>
                     <h3 className="text-2xl font-semibold mb-4 text-afghan-blue">
                       Accessories & Jewelry
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-center">
                       Elegant jewelry, colorful scarves, handcrafted bags, and
                       other unique accessories.
                     </p>
@@ -225,11 +231,14 @@ export default function ProductsPage() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="p-8 flex flex-col items-center">
+                    <div className="mb-4">
+                      <FaBookOpen className="w-12 h-12 text-green-600" />
+                    </div>
                     <h3 className="text-2xl font-semibold mb-4 text-afghan-blue">
                       Books, Art & Homeware
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-center">
                       A curated collection of literature, artistic pieces, and
                       charming items for your home.
                     </p>
