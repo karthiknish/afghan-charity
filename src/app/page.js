@@ -165,7 +165,7 @@ export default function HomePage() {
     <>
       {/* --- Enhanced Hero Section with Afghan Imagery --- */}
       <motion.section
-        className="hero-section flex flex-col md:flex-row items-center justify-center min-h-[70vh] md:min-h-[85vh] bg-[rgba(20,96,170,0.75)] px-4 md:px-12 lg:px-24 gap-8 md:gap-16"
+        className="hero-section flex flex-col-reverse md:flex-row items-center justify-center min-h-[70vh] md:min-h-[85vh] bg-[rgba(20,96,170,0.75)] px-4 md:px-12 lg:px-24 gap-8 md:gap-16"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -191,7 +191,7 @@ export default function HomePage() {
             aria-label="Charity and support icon"
           />
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-afghan-blue mb-2 flex items-center"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-afghan-blue mb-2 flex items-center "
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
