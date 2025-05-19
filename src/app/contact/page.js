@@ -218,7 +218,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            We're here to help and answer any questions you might have.
+            We&apos;re here to help and answer any questions you might have.
           </motion.p>
         </motion.div>
       </motion.section>

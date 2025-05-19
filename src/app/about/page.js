@@ -281,9 +281,9 @@ export default function AboutPage() {
                 Our Shops
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-                ACS's first shop was opened in Feltham in 2023 and we now have a
-                total of 3 shops, which include Birmingham (2024) and Liverpool
-                (2025). Come visit us!
+                ACS&apos;s first shop was opened in Feltham in 2023 and we now
+                have a total of 3 shops, which include Birmingham (2024) and
+                Liverpool (2025). Come visit us!
               </p>
             </motion.div>
 
@@ -297,7 +297,8 @@ export default function AboutPage() {
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-center">
                 In the past decade, the number of UK charity shops has grown
-                enormously. Why then another? Here's what special about ACS:
+                enormously. Why then another? Here&apos;s what special about
+                ACS:
               </p>
               <h3 className="text-xl text-center font-semibold text-afghan-blue mb-2">
                 Afghan is our speciality.
@@ -321,9 +322,9 @@ export default function AboutPage() {
                   <p className="text-gray-700 leading-relaxed">
                     Although Afghanistan is fast becoming an economic
                     powerhouse, it remains a land of extremes with millions
-                    still impoverished. ACS's proceeds are concentrated among
-                    organisations operating in Afghanistan seeking to alleviate
-                    that remaining poverty.
+                    still impoverished. ACS&apos;s proceeds are concentrated
+                    among organisations operating in Afghanistan seeking to
+                    alleviate that remaining poverty.
                   </p>
                 </div>
                 <div className="p-6 bg-afghan-light-grey rounded-lg shadow flex flex-col items-center">
@@ -366,8 +367,8 @@ export default function AboutPage() {
                     Quality goods, affordable prices.
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Who doesn't like a good deal? So come see our selection of
-                    clothing, leisure and entertainment goods.
+                    Who doesn&apos;t like a good deal? So come see our selection
+                    of clothing, leisure and entertainment goods.
                   </p>
                 </div>
               </div>

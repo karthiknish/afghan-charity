@@ -151,7 +151,7 @@ export default function FindUsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              It's All About Location. Visit one of our shops in England.
+              It&apos;s All About Location. Visit one of our shops in England.
             </motion.p>
           </motion.div>
         </motion.section>
