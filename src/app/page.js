@@ -318,7 +318,7 @@ export default function HomePage() {
             accessories as well as books, art and general household items. We
             also distribute new and original fairly traded items produced in the
             developing world. Visit your local ACS shop to donate, volunteer, or
-            find a bargain! And enjoy a cup of chai while you're here.
+            find a bargain! And enjoy a cup of chai while you&apos;re here.
           </motion.p>
           <motion.div
             style={{
