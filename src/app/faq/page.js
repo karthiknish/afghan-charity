@@ -29,159 +29,161 @@ const cardVariants = {
 
 const faqsData = [
   {
-    category: "About the Shop",
-    items: [
-      {
-        question: "What is Afghan Charity Shop?",
-        answer:
-          "Afghan Charity Shop is a UK-based charity shop aimed at supporting South Asian communities. We sell recycled clothing, accessories, books, art, and fairly traded goods.",
-      },
-      {
-        question: "Where do the proceeds go?",
-        answer: (
-          <>
-            All proceeds support charitable projects and organizations
-            benefiting South Asian communities in the UK and abroad. See our{" "}
-            <a
-              href="/supported-charities"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              Supported Charities
-            </a>{" "}
-            page for more info.
-          </>
-        ),
-      },
-    ],
+    question: "Does ACS offer a doorstep collection or delivery service?",
+    answer: (
+      <>
+        Yes, it depends on the distance from our shops and the products
+        involved.
+      </>
+    ),
   },
   {
-    category: "Donations",
-    items: [
-      {
-        question: "What items can I donate?",
-        answer:
-          "We accept high-quality, gently used South Asian clothing, accessories, books, art, and household items. Please ensure items are clean and in good condition.",
-      },
-      {
-        question: "How can I donate goods?",
-        answer: (
-          <>
-            You can bring your donations to any of our{" "}
-            <a
-              href="/contact#locations"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              shop locations
-            </a>{" "}
-            during our opening hours.
-          </>
-        ),
-      },
-      {
-        question: "Can I make a monetary donation?",
-        answer: (
-          <>
-            Yes! Monetary donations are greatly appreciated. Currently, you can
-            donate in person at our shops. We are working on setting up online
-            donations. Visit our{" "}
-            <a
-              href="/donate"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              Donate page
-            </a>{" "}
-            for more details.
-          </>
-        ),
-      },
-    ],
+    question: "Will you accept clothing that's heavily stained or torn?",
+    answer: (
+      <>
+        Yes. We can sell poor conditioned clothing items to a supplier where
+        they will be recycled or exported to other developing nations. So even
+        clothing items you might throw away can still raise money to help
+        support charities in Afghanistan.
+      </>
+    ),
   },
   {
-    category: "Volunteering",
-    items: [
-      {
-        question: "How can I volunteer?",
-        answer: (
-          <>
-            We are always looking for enthusiastic volunteers! Please visit our{" "}
-            <a
-              href="/contact#volunteer"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              Contact page
-            </a>{" "}
-            for information on how to get involved.
-          </>
-        ),
-      },
-    ],
-  },
-  {
-    category: "Shopping",
-    items: [
-      {
-        question: "Do you sell items online?",
-        answer:
-          "Currently, our products are available for purchase in-store only. We encourage you to visit our shops to find unique items and support our cause.",
-      },
-    ],
+    question: "Can I volunteer at ACS?",
+    answer: (
+      <>
+        Yes. ACS heavily relies on volunteers to keep our shops running. Please
+        stop by your local shop and speak to the manager about volunteer
+        opportunities.
+      </>
+    ),
   },
 ];
 
 export default function FAQPage() {
   return (
-    <div className="content-section">
-      <motion.div
-        className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
+    <>
+      {/* Hero Section Added to match About Us style */}
+      <motion.section
+        className="hero-section"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "calc(70vh - var(--header-height))",
+          color: "var(--afghan-white)",
+          textAlign: "center",
+          position: "relative",
+          overflow: "hidden",
+          marginBottom: "4rem",
+        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-extrabold text-center mb-16 text-[var(--afghan-blue)]">
-          Frequently Asked Questions
-        </h1>
-
-        {faqsData.map((section) => (
-          <motion.section
-            key={section.category}
-            className="mb-12"
-            variants={sectionVariants}
+        {/* Background Image - Consistent with About Us */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage:
+              "url('https://images.pexels.com/photos/4246264/pexels-photo-4246264.jpeg?auto=compress&cs=tinysrgb&w=800')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            zIndex: 1,
+          }}
+        ></div>
+        {/* Gradient Overlay - Consistent with About Us */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background:
+              "linear-gradient(rgba(0, 0, 0, 0.6), rgba(20, 96, 170, 0.8))",
+            zIndex: 2,
+          }}
+        ></div>
+        {/* Hero Content - Consistent with About Us structure */}
+        <motion.div
+          style={{
+            position: "relative",
+            zIndex: 3,
+            maxWidth: "800px",
+            padding: "0 var(--padding-medium)",
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <motion.h1
+            className="text-5xl md:text-6xl font-bold mb-6 text-afghan-white"
+            style={{
+              textShadow: "2px 2px 6px rgba(0,0,0,0.7)",
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <h2 className="text-3xl font-semibold mb-8 text-[var(--afghan-blue)] border-b-2 border-[var(--afghan-gold)] pb-3">
-              {section.category}
-            </h2>
-            <div className="space-y-6">
-              {section.items.map((item) => (
-                <motion.div
-                  key={item.question}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden border border-[var(--afghan-light-grey)] p-2"
-                  variants={cardVariants}
-                >
-                  <details className="">
-                    <summary className="flex items-center justify-between w-full p-8 font-medium text-left cursor-pointer list-none hover:bg-[var(--afghan-light-grey)]/50 group-open:bg-[var(--afghan-blue)] group-open:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afghan-blue)] focus-visible:ring-offset-2">
-                      <span className="text-base sm:text-lg text-[var(--afghan-black)] group-open:text-white">
-                        {item.question}
-                      </span>
-                      <FaChevronDown className="w-5 mr-2 h-5 sm:w-6 sm:h-6 text-[var(--afghan-medium-grey)] transition-transform duration-200 transform group-open:rotate-180 group-open:text-white flex-shrink-0 ml-2" />
-                    </summary>
-                    <div className="p-8 text-[var(--afghan-black)]/90 bg-white border-t border-[var(--afghan-light-grey)] group-open:border-[var(--afghan-blue)]/30">
-                      {typeof item.answer === "string" ? (
-                        <p className="text-sm sm:text-base leading-relaxed">
-                          {item.answer}
-                        </p>
-                      ) : (
-                        <div className="text-sm sm:text-base leading-relaxed">
-                          {item.answer}
-                        </div>
-                      )}
+            Your Questions Answered
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl"
+            style={{
+              textShadow: "1px 1px 4px rgba(0,0,0,0.5)",
+              maxWidth: "700px",
+              margin: "0 auto",
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            Find answers to common questions about donations, volunteering, and
+            our shops.
+          </motion.p>
+        </motion.div>
+      </motion.section>
+
+      <div className="content-section">
+        <motion.div
+          className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
+          initial="hidden"
+          animate="visible"
+          variants={sectionVariants}
+        >
+          <h1 className="text-4xl font-extrabold text-center mb-12 text-[var(--afghan-blue)]">
+            Frequently Asked Questions
+          </h1>
+          <div className="space-y-8">
+            {faqsData.map((item, idx) => (
+              <motion.div
+                key={item.question}
+                className="bg-white rounded-lg shadow-lg overflow-hidden border border-[var(--afghan-light-grey)] p-2"
+                variants={cardVariants}
+              >
+                <details className="">
+                  <summary className="flex items-center justify-between w-full p-8 font-medium text-left cursor-pointer list-none hover:bg-[var(--afghan-light-grey)]/50 group-open:bg-[var(--afghan-blue)] group-open:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afghan-blue)] focus-visible:ring-offset-2">
+                    <span className="text-base sm:text-lg text-[var(--afghan-black)] group-open:text-white">
+                      {item.question}
+                    </span>
+                    <FaChevronDown className="w-5 mr-2 h-5 sm:w-6 sm:h-6 text-[var(--afghan-medium-grey)] transition-transform duration-200 transform group-open:rotate-180 group-open:text-white flex-shrink-0 ml-2" />
+                  </summary>
+                  <div className="p-8 text-[var(--afghan-black)]/90 bg-white border-t border-[var(--afghan-light-grey)] group-open:border-[var(--afghan-blue)]/30">
+                    <div className="text-sm sm:text-base leading-relaxed">
+                      {item.answer}
                     </div>
-                  </details>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-        ))}
-      </motion.div>
-    </div>
+                  </div>
+                </details>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </>
   );
 }

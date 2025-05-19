@@ -75,20 +75,24 @@ export default function Header() {
           </button>
           <ul className={mobileMenuOpen ? "mobile-active" : ""}>
             <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
               <Link href="/about">About Us</Link>
             </li>
             <li>
               <Link href="/products">What We Do</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/find-us">Find Us</Link>
+            </li>
+            <li>
+              <Link href="/supported-charities">Supported Charities</Link>
             </li>
             <li>
               <Link href="/faq">FAQ</Link>
             </li>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
+
             <li>
               <Link href="/donate" className="button button-primary-red">
                 Donate

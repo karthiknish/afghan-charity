@@ -204,9 +204,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            Join Afghan Charity Shop in our mission to provide essential
-            support, education, and opportunity for Afghan communities in need
-            both in the UK and abroad.
+            The Afghan Charity Shop (ACS) is a UK-based chain of charity shops
+            dedicated to supporting Afghan communities both locally and
+            internationally. Join us in making a difference.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mt-2"
@@ -312,12 +312,13 @@ export default function HomePage() {
               className="inline-block text-afghan-blue mr-1 align-text-bottom"
               aria-label="Community Icon"
             />
-            The Afghan Charity Shop is dedicated to improving lives through
-            sustainable aid, education, and community building. We believe in
-            empowering individuals and families to create lasting change in
-            their communities. Our initiatives focus on preserving cultural
-            heritage while addressing immediate needs and creating pathways to
-            self-sufficiency.
+            The Afghan Charity Shop (ACS) is a chain of UK based charity shops
+            established to benefit Afghan communities in the UK and abroad. ACS
+            specialises in selling high quality, recycled clothing and
+            accessories as well as books, art and general household items. We
+            also distribute new and original fairly traded items produced in the
+            developing world. Visit your local ACS shop to donate, volunteer, or
+            find a bargain! And enjoy a cup of chai while you're here.
           </motion.p>
           <motion.div
             style={{
@@ -884,6 +885,12 @@ export default function HomePage() {
             className="button button-primary-red button-large flex items-center"
           >
             Donate Today
+          </Link>
+          <Link
+            href="/contact#stores"
+            className="button button-primary-gold button-large flex items-center"
+          >
+            Find a Shop & Enjoy Chai
           </Link>
         </motion.div>
       </motion.section>

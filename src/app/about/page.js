@@ -1,13 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  FaHeart,
-  FaShieldAlt,
-  FaRecycle,
-  FaUsers,
-  FaGraduationCap,
-  FaPuzzlePiece,
-} from "react-icons/fa";
+  Heart,
+  Shield,
+  Recycle,
+  Users,
+  GraduationCap,
+  Puzzle,
+} from "lucide-react";
 import Image from "next/image";
 
 const fadeIn = {
@@ -54,42 +54,42 @@ const cardVariants = {
 export default function AboutPage() {
   const values = [
     {
-      icon: FaHeart,
+      icon: Heart,
       title: "Compassion",
       text: "We approach our work with empathy and a deep understanding of the needs of the communities we serve.",
       color: "bg-red-50",
       iconColor: "text-red-600",
     },
     {
-      icon: FaShieldAlt,
+      icon: Shield,
       title: "Integrity",
       text: "We operate with transparency and accountability, ensuring that all our actions are ethical and responsible.",
       color: "bg-blue-50",
       iconColor: "text-afghan-blue",
     },
     {
-      icon: FaRecycle,
+      icon: Recycle,
       title: "Sustainability",
       text: "We focus on creating long-term solutions that empower communities to thrive independently.",
       color: "bg-green-50",
       iconColor: "text-green-600",
     },
     {
-      icon: FaUsers,
+      icon: Users,
       title: "Inclusivity",
       text: "We embrace diversity and strive to create an environment where everyone feels valued and respected.",
       color: "bg-purple-50",
       iconColor: "text-purple-600",
     },
     {
-      icon: FaGraduationCap,
+      icon: GraduationCap,
       title: "Respect",
       text: "We honor the culture, traditions, and dignity of every individual we interact with.",
       color: "bg-amber-50",
       iconColor: "text-amber-600",
     },
     {
-      icon: FaPuzzlePiece,
+      icon: Puzzle,
       title: "Collaboration",
       text: "We believe in the power of partnership and work closely with communities and other organizations to achieve our goals.",
       color: "bg-indigo-50",
@@ -175,28 +175,28 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              Our Story & Mission
+              About Afghan Charity Shop
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl"
               style={{
                 textShadow: "1px 1px 4px rgba(0,0,0,0.5)",
-                maxWidth: "600px",
+                maxWidth: "700px",
                 margin: "0 auto",
               }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              Empowering Afghan communities through sustainable initiatives,
-              cultural preservation, and compassionate support.
+              Dedicated to relief, health, education, and economic opportunity,
+              with a special focus on Afghanistan.
             </motion.p>
           </motion.div>
         </motion.section>
 
         {/* Main Content Section */}
         <motion.section
-          className="content-section py-16 md:py-24"
+          className="content-section py-12 md:py-20"
           style={{
             background: "var(--afghan-white)",
             paddingLeft: "var(--padding-large)",
@@ -207,71 +207,179 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div>
-            {/* About Content */}
-            <div className="flex flex-wrap gap-12 lg:gap-16 items-center mb-24">
-              <motion.div className="flex-1 min-w-[300px]" variants={fadeIn}>
-                <h2 className="text-4xl font-bold text-afghan-blue mb-8">
-                  Who We Are
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    Afghan Charity is a chain of UK based charity shops
-                    established to benefit South Asian communities both in the
-                    UK and abroad.
+          <div className="max-w-5xl mx-auto">
+            {/* Our Purpose */}
+            <motion.div
+              className="mb-16 md:mb-24 text-center"
+              variants={fadeIn}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-afghan-blue mb-6">
+                Our Purpose
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                ACS was established to raise funds for the relief of poverty,
+                oppression, and injustice as well as for the promotion of
+                health, education and economic opportunity in the developing
+                world with a special emphasis on Afghanistan.
+              </p>
+            </motion.div>
+
+            {/* What We Do & Our Impact */}
+            <div className="flex flex-wrap gap-10 lg:gap-16 items-start mb-16 md:mb-24">
+              <motion.div
+                className="flex-1 min-w-[280px] md:min-w-[320px]"
+                variants={fadeIn}
+              >
+                <h3 className="text-2xl font-semibold text-afghan-blue mb-4">
+                  What We Do
+                </h3>
+                <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+                  <p>
+                    We specialise in selling high quality, recycled clothing,
+                    accessories & household items.
                   </p>
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    We specialize in selling high quality, recycled South Asian
-                    clothing and accessories as well as books, art and general
-                    household items. We also distribute new and original fairly
-                    traded items produced in the developing world.
-                  </p>
-                  <p className="text-gray-700 text-lg leading-relaxed font-medium">
-                    Our mission is to empower individuals and communities
-                    through sustainable initiatives that preserve cultural
-                    heritage while building bridges to a brighter future.
+                  <p>
+                    We also seek to encourage economic development in
+                    Afghanistan by creating sustainable outlets for ACS Artisans
+                    -- micro and cottage industries being developed in
+                    Afghanistan.
                   </p>
                 </div>
               </motion.div>
-              <motion.div className="flex-1 min-w-[300px]" variants={fadeIn}>
-                <div className="relative">
-                  <Image
-                    src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800&h=600&auto=format&fit=crop"
-                    alt="Diverse community gathering"
-                    width={800}
-                    height={600}
-                    className="rounded-2xl shadow-2xl"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                  />
-                  {/* Decorative element */}
-                  <div
-                    className="absolute -bottom-6 -right-6 w-32 h-32 opacity-10"
-                    style={{
-                      background: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231460aa' fill-opacity='1'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E")`,
-                    }}
-                  />
-                </div>
+              <motion.div
+                className="flex-1 min-w-[280px] md:min-w-[320px]"
+                variants={fadeIn}
+              >
+                <h3 className="text-2xl font-semibold text-afghan-blue mb-4">
+                  Our Impact Through Donations
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  Donations generously provided from within the UK are carefully
+                  selected for resale, benefiting both the local community and
+                  the charities ACS supports from the sales proceeds.
+                </p>
               </motion.div>
             </div>
 
+            {/* Image section - Placeholder, can be customized */}
+            <motion.div className="mb-16 md:mb-24" variants={fadeIn}>
+              <Image
+                src="https://images.pexels.com/photos/8580732/pexels-photo-8580732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Inside an Afghan Charity Shop or community project"
+                width={1200}
+                height={500}
+                className="rounded-xl shadow-lg object-cover w-full max-h-[400px]"
+              />
+            </motion.div>
+
+            {/* Our Shops */}
+            <motion.div
+              className="mb-16 md:mb-24 text-center"
+              variants={fadeIn}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-afghan-blue mb-6">
+                Our Shops
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+                ACS's first shop was opened in Feltham in 2023 and we now have a
+                total of 3 shops, which include Birmingham (2024) and Liverpool
+                (2025). Come visit us!
+              </p>
+            </motion.div>
+
+            {/* Why ACS? Section */}
+            <motion.div variants={fadeIn} className="mb-16 md:mb-24">
+              <h2
+                style={{ width: "100%" }}
+                className="text-3xl md:text-4xl font-bold text-afghan-blue mb-10 text-center"
+              >
+                Why Choose ACS?
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-center">
+                In the past decade, the number of UK charity shops has grown
+                enormously. Why then another? Here's what special about ACS:
+              </p>
+              <h3 className="text-xl text-center font-semibold text-afghan-blue mb-2">
+                Afghan is our speciality.
+              </h3>
+              <div className="grid md:grid-cols-3 gap-x-12 gap-y-8">
+                <div className="p-6 bg-afghan-light-grey rounded-lg shadow flex flex-col items-center">
+                  {/* Image placeholder for Fighting poverty */}
+                  <div className="mb-4 w-full flex justify-center">
+                    {/* Add your image here */}
+                    <Image
+                      src="https://images.pexels.com/photos/735446/pexels-photo-735446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      alt="Fighting poverty"
+                      width={200}
+                      height={80}
+                      className="rounded-md object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-afghan-blue mb-2">
+                    Fighting poverty.
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Although Afghanistan is fast becoming an economic
+                    powerhouse, it remains a land of extremes with millions
+                    still impoverished. ACS's proceeds are concentrated among
+                    organisations operating in Afghanistan seeking to alleviate
+                    that remaining poverty.
+                  </p>
+                </div>
+                <div className="p-6 bg-afghan-light-grey rounded-lg shadow flex flex-col items-center">
+                  {/* Image placeholder for Reuse = good */}
+                  <div className="mb-4 w-full flex justify-center">
+                    {/* Add your image here */}
+                    <Image
+                      src="https://images.pexels.com/photos/2547565/pexels-photo-2547565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      alt="Reuse is good"
+                      width={200}
+                      height={80}
+                      className="rounded-md object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-afghan-blue mb-2">
+                    Reuse = good.
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Not recycling? The fact is reuse of clothing is good for our
+                    environment. According to the Charity Retail Association,
+                    charity shops save over 360,000 tonnes of textiles each year
+                    from their fate in a landfill and saves our environment from
+                    all that nasty CO2. So give your clothes a 2nd life and help
+                    the environment in the process.
+                  </p>
+                </div>
+                <div className="p-6 bg-afghan-light-grey rounded-lg shadow flex flex-col items-center">
+                  {/* Image placeholder for Quality goods, affordable prices */}
+                  <div className="mb-4 w-full flex justify-center">
+                    {/* Add your image here */}
+                    <Image
+                      src="https://images.pexels.com/photos/32119572/pexels-photo-32119572/free-photo-of-cozy-melbourne-books-and-coffee-store-display.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      alt="Quality goods, affordable prices"
+                      width={200}
+                      height={80}
+                      className="rounded-md object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-afghan-blue mb-2">
+                    Quality goods, affordable prices.
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Who doesn't like a good deal? So come see our selection of
+                    clothing, leisure and entertainment goods.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Values Section */}
             <motion.section
-              variants={cardContainerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="pt-16 pb-8"
+              className="py-12 md:py-16"
+              variants={sectionVariants}
             >
-              <h2
-                style={{
-                  width: "100%",
-                }}
-                className="text-4xl font-bold text-afghan-blue  text-center mb-16"
-              >
-                Our Values
+              <h2 className="text-3xl md:text-4xl font-bold text-afghan-blue mb-12 text-center">
+                Our Core Values
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {values.map((value) => {
@@ -288,6 +396,7 @@ export default function AboutPage() {
                         >
                           <IconComponent
                             className={`w-10 h-10 ${value.iconColor}`}
+                            strokeWidth={2.2}
                           />
                         </div>
                         <h3 className="text-2xl font-semibold mb-4 text-afghan-blue">
