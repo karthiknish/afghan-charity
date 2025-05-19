@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-
+import Image from "next/image";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,46 +24,23 @@ export default function Header() {
   return (
     <>
       <header>
-        <nav>
+        <nav
+          style={{
+            minHeight: "90px", // Increased nav height
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "1rem 4rem",
+          }}
+        >
           <Link href="/" className="logo">
             {/* Afghan-inspired logo icon */}
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                marginRight: "10px",
-                filter: "drop-shadow(0 0 8px var(--afghan-gold))",
-              }}
-            >
-              <path
-                d="M12 2L2 7L12 12L22 7L12 2Z"
-                fill="var(--afghan-blue)"
-                stroke="var(--afghan-blue)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2 17L12 22L22 17"
-                fill="none"
-                stroke="var(--afghan-red)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2 12L12 17L22 12"
-                fill="none"
-                stroke="var(--afghan-green)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <h2>Afghan Charity Shop</h2>
+            <Image
+              src="/logo.png"
+              alt="Afghan Charity Shop"
+              width={150}
+              height={150}
+            />
           </Link>
           <button
             className="mobile-menu-button"
