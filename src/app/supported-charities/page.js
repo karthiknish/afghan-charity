@@ -29,7 +29,6 @@ const charitySections = [
     alt: "Education and Skills Development",
     description:
       "Literacy programs, vocational training, and entrepreneurial development opportunities.",
-    direction: "row",
   },
   {
     title: "Healthcare",
@@ -38,7 +37,6 @@ const charitySections = [
     alt: "Healthcare",
     description:
       "Public health awareness initiatives and essential health services, improve maternal and child health, deliver psychosocial support, and raise awareness about hygiene and disease prevention.",
-    direction: "row-reverse",
   },
   {
     title: "Livelihoods and Economic Empowerment",
@@ -47,7 +45,6 @@ const charitySections = [
     alt: "Livelihoods and Economic Empowerment",
     description:
       "SME development, vocational training, capacity-building, and agricultural initiatives to drive economic growth.",
-    direction: "row",
   },
   {
     title: "Emergency and Humanitarian Assistance",
@@ -56,7 +53,6 @@ const charitySections = [
     alt: "Emergency and Humanitarian Assistance",
     description:
       "Immediate relief including cash, food, shelter, medical aid as well as long-term assistance to displaced and conflict-affected populations.",
-    direction: "row-reverse",
   },
   {
     title: "Community Development, Peacebuilding, and Good Governance",
@@ -65,7 +61,6 @@ const charitySections = [
     alt: "Community Development, Peacebuilding, and Good Governance",
     description:
       "Social cohesion, foster local leadership and political participation, and build resilient communities.",
-    direction: "row",
   },
   {
     title: "Agriculture and Food Security",
@@ -74,7 +69,6 @@ const charitySections = [
     alt: "Agriculture and Food Security",
     description:
       "Promote sustainable farming practices and ensure access to resources for rural communities.",
-    direction: "row-reverse",
   },
   {
     title: "Water, Sanitation, and Hygiene (WASH)",
@@ -83,7 +77,6 @@ const charitySections = [
     alt: "Water, Sanitation, and Hygiene (WASH)",
     description:
       "We improve access to clean water and sanitation facilities, alongside community-driven hygiene education.",
-    direction: "row",
   },
   {
     title: "Human Rights (Gender Justice and GBV Prevention)",
@@ -92,7 +85,6 @@ const charitySections = [
     alt: "Human Rights (Gender Justice and GBV Prevention)",
     description:
       "We promote human rights, women's rights, and child rights through advocacy, campaigning, targeted interventions, and access to opportunities.",
-    direction: "row-reverse",
   },
 ];
 
@@ -114,7 +106,7 @@ export default function SupportedCharitiesPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "calc(70vh - var(--header-height))",
+            minHeight: "calc(65vh)",
             color: "var(--afghan-white)",
             textAlign: "center",
             position: "relative",
@@ -219,7 +211,7 @@ export default function SupportedCharitiesPage() {
               </h2>
               <div className="w-full flex flex-col items-center">
                 <Image
-                  src="https://images.pexels.com/photos/3651632/pexels-photo-3651632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="/support-hand.jpg"
                   alt="Charity support in Afghanistan"
                   width={700}
                   height={350}
@@ -254,36 +246,40 @@ export default function SupportedCharitiesPage() {
               </div>
 
               <div className="space-y-8">
-                {charitySections.map((section, idx) => (
-                  <div
-                    key={section.title}
-                    className={`flex flex-col md:flex-${
-                      section.direction
-                    } items-center gap-6 md:gap-8 py-6 border-b border-gray-200 ${
-                      idx === charitySections.length - 1
-                        ? "last:border-b-0"
-                        : ""
-                    }`}
-                  >
-                    <div className="md:w-1/3 w-full flex-shrink-0">
-                      <Image
-                        src={section.image}
-                        alt={section.alt}
-                        width={600}
-                        height={400}
-                        className="rounded-lg shadow-md object-cover w-full h-48 md:h-full"
-                      />
+                {charitySections.map((section, idx) => {
+                  // Alternate layout: even idx = row, odd idx = row-reverse
+                  const isEven = idx % 2 === 0;
+                  return (
+                    <div
+                      key={section.title}
+                      className={`w-full flex flex-col md:flex-row ${
+                        !isEven ? "md:flex-row-reverse" : ""
+                      } items-center gap-6 md:gap-8 py-6 border-b border-gray-200 ${
+                        idx === charitySections.length - 1
+                          ? "last:border-b-0"
+                          : ""
+                      }`}
+                    >
+                      <div className="md:w-1/3 w-full flex-shrink-0 flex justify-center">
+                        <Image
+                          src={section.image}
+                          alt={section.alt}
+                          width={600}
+                          height={400}
+                          className="rounded-lg shadow-md object-cover w-full h-48 md:h-full"
+                        />
+                      </div>
+                      <div className="md:w-2/3 w-full">
+                        <h4 className="text-xl lg:text-2xl font-semibold text-afghan-green mb-2">
+                          {section.title}
+                        </h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {section.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="md:w-2/3">
-                      <h4 className="text-xl lg:text-2xl font-semibold text-afghan-green mb-2">
-                        {section.title}
-                      </h4>
-                      <p className="text-gray-700 leading-relaxed">
-                        {section.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
 

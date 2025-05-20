@@ -114,7 +114,7 @@ export default function AboutPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "calc(70vh - var(--header-height))",
+            minHeight: "calc(85vh - var(--header-height))",
             color: "var(--afghan-white)",
             textAlign: "center",
             position: "relative",

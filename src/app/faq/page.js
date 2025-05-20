@@ -70,7 +70,7 @@ export default function FAQPage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          minHeight: "calc(70vh - var(--header-height))",
+          minHeight: "calc(65vh)",
           color: "var(--afghan-white)",
           textAlign: "center",
           position: "relative",

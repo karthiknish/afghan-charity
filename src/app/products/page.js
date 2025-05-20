@@ -63,7 +63,7 @@ export default function ProductsPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "calc(70vh - var(--header-height))",
+            minHeight: "calc(65vh)",
             color: "var(--afghan-white)",
             textAlign: "center",
             position: "relative",
@@ -175,7 +175,7 @@ export default function ProductsPage() {
                 <div className="h-full bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden">
                   <div className="relative h-64">
                     <Image
-                      src="https://images.unsplash.com/photo-1609587312208-cea54be969e7?q=80&w=800&auto=format&fit=crop"
+                      src="/afghan-clothing.jpg"
                       alt="South Asian Clothing"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
@@ -200,7 +200,7 @@ export default function ProductsPage() {
                 <div className="h-full bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden">
                   <div className="relative h-64">
                     <Image
-                      src="https://images.unsplash.com/photo-1602024242516-fbc9d4fda4b6?q=80&w=800&auto=format&fit=crop"
+                      src="/afghan-jewellery.jpg"
                       alt="Accessories"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
@@ -225,7 +225,7 @@ export default function ProductsPage() {
                 <div className="h-full bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden">
                   <div className="relative h-64">
                     <Image
-                      src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?q=80&w=800&auto=format&fit=crop"
+                      src="/afghan-art.png"
                       alt="Books and Art"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"

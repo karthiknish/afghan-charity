@@ -26,7 +26,7 @@ export default function Header() {
       <header>
         <nav
           style={{
-            minHeight: "90px", // Increased nav height
+            minHeight: "80px", // Increased nav height
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -38,8 +38,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Afghan Charity Shop"
-              width={150}
-              height={150}
+              width={120}
+              height={120}
             />
           </Link>
           <button

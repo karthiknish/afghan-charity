@@ -172,15 +172,10 @@ export default function HomePage() {
       >
         {/* Charity Video Left */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <video
-            src="/charity-new.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/file.svg"
+          <img
+            src="/charity-cover.jpg"
+            alt="Afghan Charity Shop cover"
             className="rounded-2xl shadow-xl w-full max-w-[360px] aspect-[9/16] object-cover bg-black"
-            aria-label="Charity video showing Afghan Charity Shop in action"
           />
         </div>
         {/* Hero Content Right */}

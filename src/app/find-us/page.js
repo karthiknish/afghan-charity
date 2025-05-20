@@ -32,8 +32,7 @@ const shopLocations = [
     ],
     hours: "10am - 6.00pm",
     gmapsQuery: "Unit 9 Griffin Centre, Staines Road, Feltham, TW14 0HS",
-    imageSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Feltham_high_street_2.jpg", // Placeholder image
+    imageSrc: "/feltham.jpg", // Placeholder image
     embedMapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.007378116187!2d-0.4109588875897021!3d51.458020971684455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487673110a53d1bf%3A0x2a92e7cbe10d15f6!2sGriffin%20Centre%2C%20Staines%20Rd%2C%20Feltham%20TW14%200HS%2C%20UK!5e0!3m2!1sen!2sin!4v1747634547580!5m2!1sen!2sin",
   },
@@ -42,8 +41,7 @@ const shopLocations = [
     addressLines: ["Unit 24, Kenyon Forge", "Kenyon St, Birmingham", "B18 6DH"],
     hours: "10am - 6.00pm",
     gmapsQuery: "Unit 24, Kenyon Forge, Kenyon St, Birmingham, B18 6DH",
-    imageSrc:
-      "https://images.pexels.com/photos/7244373/pexels-photo-7244373.jpeg?auto=compress&cs=tinysrgb&w=800", // Placeholder image
+    imageSrc: "/birmingham.jpg", // Placeholder image
     embedMapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.548863432649!2d-1.9098919875324554!3d52.487303571936025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bd4d9d1be9eb%3A0xd9b6aeb34ec8c7bf!2zQWZnaGFuaXN0YW4gYW5kIENlbnRyYWwgQXNpYW4gQXNzb2NpYXRpb24gLSDYp9mG2KzZhdmGINin2YHYutin2YbYs9iq2KfZhiDZiCDYotiz24zYp9uMINmF24zYp9mG2Yc!5e0!3m2!1sen!2sin!4v1747634680952!5m2!1sen!2sin",
   },
@@ -52,8 +50,7 @@ const shopLocations = [
     addressLines: ["295B, Hawthorne Road", "Bootle, Liverpool", "L20 3AP"],
     hours: "10am - 6.00pm",
     gmapsQuery: "295B, Hawthorne Road, Bootle, Liverpool, L20 3AP",
-    imageSrc:
-      "https://images.pexels.com/photos/2536478/pexels-photo-2536478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // Placeholder image
+    imageSrc: "/liverpool.jpeg", // Placeholder image
     embedMapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.9698462237093!2d-2.9861998874781728!3d53.45112527220449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b23ef5a425c27%3A0xf9264c10143b4cf1!2s295B%20Hawthorne%20Rd%2C%20Bootle%20L20%203AP%2C%20UK!5e0!3m2!1sen!2sin!4v1747634720419!5m2!1sen!2sin",
   },
@@ -77,7 +74,7 @@ export default function FindUsPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "calc(70vh - var(--header-height))", // Matched About Us hero height
+            minHeight: "calc(65vh)", // Matched About Us hero height
             color: "var(--afghan-white)",
             textAlign: "center",
             position: "relative",

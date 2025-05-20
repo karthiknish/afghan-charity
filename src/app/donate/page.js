@@ -83,12 +83,12 @@ export default function DonatePage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          minHeight: "calc(70vh - var(--header-height))", // Matched About Us hero height
+          minHeight: "calc(85vh - var(--header-height))",
           color: "var(--afghan-white)",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          marginBottom: "4rem", // Matched About Us hero margin
+          marginBottom: "4rem",
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
